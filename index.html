@@ -109,6 +109,30 @@
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
   
+  <style>
+    .demo-table td { vertical-align: middle; text-align: center; }
+    .demo-table th { text-align: center; }
+    .instruction-col { width: 22%; text-align: left !important; vertical-align: middle; font-size: 0.92rem; }
+    .demo-video { width: 100%; max-width: 320px; display: block; margin: 0 auto; }
+    .demo-audio { width: 100%; display: block; margin: 0 auto; }
+    .demo-image { width: 100%; max-width: 280px; display: block; margin: 0 auto; border-radius: 4px; }
+    .demo-section { padding: 3rem 1.5rem; }
+    .subsection-title { font-size: 1.2rem; font-weight: 600; margin: 2rem 0 0.75rem; color: #363636; }
+    .media-stack > * + * { margin-top: 0.5rem; }
+
+    /* TLDR capability cards */
+    .tldr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .tldr-card { border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; text-decoration: none !important; color: inherit !important; transition: box-shadow 0.2s, transform 0.15s; background: #fff; display: flex; flex-direction: column; cursor: pointer; }
+    .tldr-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.13); transform: translateY(-3px); }
+    .tldr-card video, .tldr-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #111; display: block; }
+    .tldr-card-audio-wrap { background: #1a1a2e; padding: 1rem 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .tldr-card-audio-wrap audio { width: 100%; }
+    .tldr-card-audio-icon { color: #888; font-size: 1.6rem; }
+    .tldr-card-body { padding: 0.7rem 0.9rem; flex: 1; }
+    .tldr-card-title { font-weight: 700; font-size: 0.9rem; color: #2563eb; margin-bottom: 0.3rem; }
+    .tldr-card-instruction { font-size: 0.8rem; color: #555; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
   {
@@ -306,23 +330,108 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
+<!-- TLDR Capability Cards -->
+<section class="section" style="padding: 2.5rem 1.5rem;">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="av2vav/thanos_all_day.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        An omni-modal editing model for audio, video, and images.
-      </h2>
+    <h2 class="title is-4 has-text-centered" style="margin-bottom: 0.25rem;">An omni-modal editing model for audio, video, and images.</h2>
+    <p class="has-text-centered" style="color: #888; font-size: 0.9rem; margin-bottom: 0;">Click any card to jump to examples ↓</p>
+    <div class="tldr-grid">
+
+      <a href="#voice-cloning" class="tldr-card">
+        <video controls muted loop preload="metadata">
+          <source src="cloning/thanos_all_day.mp4" type="video/mp4">
+        </video>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">AV &#8594; AV: Voice Cloning</div>
+          <div class="tldr-card-instruction">"Change the speech to I could do this all day"</div>
+        </div>
+      </a>
+
+      <a href="#voice-cloning-crosslingual" class="tldr-card">
+        <video controls muted loop preload="metadata">
+          <source src="cloning/row0_YTDown_YouTube_Obi-Wan-It-s-Over-Anakin-I-have-the-high_Media_U8wLBOlCKPU_001_720p_6_8_vid1.mp4" type="video/mp4">
+        </video>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">AV &#8594; AV: Voice Cloning (Cross-lingual)</div>
+          <div class="tldr-card-instruction">"Change the speech to Tu sous-estimes mon pouvoir."</div>
+        </div>
+      </a>
+
+      <a href="#movie-editing" class="tldr-card">
+        <video controls muted loop preload="metadata">
+          <source src="movie/34ffb37f-7a6f-4c99-93c8-69a6059aa753.mp4" type="video/mp4">
+        </video>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">AV &#8594; AV: Movie Editing</div>
+          <div class="tldr-card-instruction">"Add a dinosaur roaring"</div>
+        </div>
+      </a>
+
+      <a href="#source-separation" class="tldr-card">
+        <video controls muted loop preload="metadata">
+          <source src="soundlift/row28_YTDown_YouTube_Captain-America-Avengers-Assemble-Scene-_Media_4pFUP0HZwWM_001_1080p_90_120.mp4" type="video/mp4">
+        </video>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">A &#8594; A: Source Separation</div>
+          <div class="tldr-card-instruction">"Remove the dialogue and music"</div>
+        </div>
+      </a>
+
+      <a href="#a2a-audiochat" class="tldr-card">
+        <div class="tldr-card-audio-wrap">
+          <i class="fas fa-music tldr-card-audio-icon"></i>
+          <audio controls preload="metadata">
+            <source src="a2a_audiocaps/row2_486e5a96f9e743003b81b5c7e157edf8_audio1.wav" type="audio/wav">
+          </audio>
+        </div>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">A &#8594; A: Editing</div>
+          <div class="tldr-card-instruction">"Add the sound of a bird chirping"</div>
+        </div>
+      </a>
+
+      <a href="#v2v-editing" class="tldr-card">
+        <video controls muted loop preload="metadata">
+          <source src="v2v/d3830930-8781-40ba-abb9-a67d22137787.mp4" type="video/mp4">
+        </video>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">V &#8594; V: Editing</div>
+          <div class="tldr-card-instruction">"Replace the green bowl with a mystical crystal orb"</div>
+        </div>
+      </a>
+
+      <a href="#i2i-editing" class="tldr-card">
+        <img src="i2i/row2_imgedit_style_673_img3.jpg" alt="Style transfer output">
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">I &#8594; I: Editing</div>
+          <div class="tldr-card-instruction">"Transfer the image into a traditional ukiyo-e woodblock-print style."</div>
+        </div>
+      </a>
+
+      <a href="#i2va" class="tldr-card">
+        <video controls muted loop preload="metadata">
+          <source src="i2va/row1_ti2v_GR6_bitesized_149_1.0_1_vid1.mp4" type="video/mp4">
+        </video>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">I &#8594; V+A</div>
+          <div class="tldr-card-instruction">"Several penguins stand and interact on a snow-covered iceberg while small seals emerge from the nearby water…"</div>
+        </div>
+      </a>
+
+      <a href="#ia2va" class="tldr-card">
+        <video controls muted loop preload="metadata">
+          <source src="ia2va/row0_vid2.mp4" type="video/mp4">
+        </video>
+        <div class="tldr-card-body">
+          <div class="tldr-card-title">I+A &#8594; V+A</div>
+          <div class="tldr-card-instruction">"Generate a talking head video from an image and reference speech audio"</div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End TLDR Capability Cards -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -342,39 +451,271 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Table of Contents -->
+<section class="section" style="padding: 2rem 1.5rem; background: #f5f5f5;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4">Table of Contents</h2>
+    <div class="content">
+      <ol style="line-height: 2;">
+        <li><a href="#voice-cloning">Audio+Video &#8594; Audio+Video: Voice Cloning</a>
+          <ul>
+            <li><a href="#voice-cloning-interviews">Interviews</a></li>
+            <li><a href="#voice-cloning-movies">Movies</a></li>
+            <li><a href="#voice-cloning-crosslingual">Cross-lingual (Zero-Shot)</a></li>
+          </ul>
+        </li>
+        <li><a href="#movie-editing">Audio+Video &#8594; Audio+Video: Movie Editing (Zero-Shot)</a></li>
+        <li><a href="#source-separation">Audio-to-Audio: Instruction-based Source Separation</a></li>
+        <li><a href="#a2a-editing">Audio &#8594; Audio: Editing</a>
+          <ul>
+            <li><a href="#a2a-audiochat">Synthetic Scenes (AudioChat)</a></li>
+            <li><a href="#a2a-audiocaps">Real World Audio (AudioCaps)</a></li>
+          </ul>
+        </li>
+        <li><a href="#v2v-editing">Video &#8594; Video: Editing</a>
+          <ul>
+            <li><a href="#v2v-image">Video + Image to Video</a></li>
+          </ul>
+        </li>
+        <li><a href="#i2i-editing">Image &#8594; Image: Editing</a></li>
+        <li><a href="#i2va">Image &#8594; Video+Audio</a></li>
+        <li><a href="#ia2va">Image+Audio &#8594; Video+Audio</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- End Table of Contents -->
+
+
+<!-- ============================================================ -->
+<!-- 1. Audio+Video → Audio+Video: Voice Cloning               -->
+<!-- ============================================================ -->
+<section class="section demo-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="voice-cloning">Audio+Video &#8594; Audio+Video: Voice Cloning</h2>
+
+    <h3 class="subsection-title" id="voice-cloning-interviews">Interviews</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Video</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Change the speech to There have been many times we have been doing scenes and I'll be doing all</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row1_cfa465c41d296cb1e2ac5a471e61a4ed_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row1_cfa465c41d296cb1e2ac5a471e61a4ed_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to So, but she's also a very calm person. She needs to be calm in order to...</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row2_d4121652e7bf2d4d5fae546c034ec4b7_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row2_d4121652e7bf2d4d5fae546c034ec4b7_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to 5% of the world's crops depend on their cooperation.</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row26_f48e1923a56905796683bdadf201bf99_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row26_f48e1923a56905796683bdadf201bf99_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to 5% of the world's crops depend on their cooperation.</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row609_3874cc13e026948a8d6a0fd2d327d425_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row609_3874cc13e026948a8d6a0fd2d327d425_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to She was this feisty young woman who spoke her mind</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row63_87df7f267425f68493afae05ecdeec7d_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row63_87df7f267425f68493afae05ecdeec7d_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to Its kind of an action, its kind of a comedy</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row563_f02ab8b2de46d72d86ecc6998a1bd729_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row563_f02ab8b2de46d72d86ecc6998a1bd729_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to I've been doing a lot of heavy movies lately</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row573_1ffa533f1fc84d3b900a6d53c294bec3_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row573_1ffa533f1fc84d3b900a6d53c294bec3_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to Twilight and Applejack and Rainbow Dash and Rarity and Fluttershy</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row582_74385a9ffffbcb8bd2332fe547d84403_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row582_74385a9ffffbcb8bd2332fe547d84403_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to and then I'm like, I gotta, I have to, A, have to do this,</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row597_17d9fe7c858e7ed642cc0cc6a9566eb5_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row597_17d9fe7c858e7ed642cc0cc6a9566eb5_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title" id="voice-cloning-movies">Movies</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Video</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Change the speech to I could do this all day</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row2_YTDown_YouTube_Avengers-Endgame-2019-You-Could-Not-Live_Media_iCMcSx1as3c_001_1080p_3.8_5.8_vid0(1).mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/thanos_all_day.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to It's over, I have the high ground</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row2_YTDown_YouTube_Avengers-Endgame-2019-You-Could-Not-Live_Media_iCMcSx1as3c_001_1080p_3.8_5.8_vid0(1).mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/thanos_highgroun.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to I suspect the squirrel has a tiny wire Watson</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row3_YTDown_YouTube_Sherlock-amazing-deduction-scene_Media_-x2_0zs_Xic_001_1080p_79_82_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row3_YTDown_YouTube_Sherlock-amazing-deduction-scene_Media_-x2_0zs_Xic_001_1080p_79_82_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to This time for Africa</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row0_YTDown_YouTube_Garrosh-Hellscream-Times-Change_Media_dJuZBST3FiM_001_720p_24.1_26.1_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row0_YTDown_YouTube_Garrosh-Hellscream-Times-Change_Media_dJuZBST3FiM_001_720p_24.1_26.1_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to I am the one who knocks!</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row1_YTDown_YouTube_Obi-Wan-It-s-Over-Anakin-I-have-the-high_Media_U8wLBOlCKPU_001_720p_2_4_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row1_YTDown_YouTube_Obi-Wan-It-s-Over-Anakin-I-have-the-high_Media_U8wLBOlCKPU_001_720p_2_4_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="subsection-title" id="voice-cloning-crosslingual">Cross-lingual (Zero-Shot)</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Video</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Change the speech to Tu sous-estimes mon pouvoir.</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row0_YTDown_YouTube_Obi-Wan-It-s-Over-Anakin-I-have-the-high_Media_U8wLBOlCKPU_001_720p_6_8_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row0_YTDown_YouTube_Obi-Wan-It-s-Over-Anakin-I-have-the-high_Media_U8wLBOlCKPU_001_720p_6_8_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to 牛逼啊</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row3_YTDown_YouTube_Captain-America-Avengers-Assemble-Scene-_Media_4pFUP0HZwWM_001_1080p_201_203_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="cloning/row3_YTDown_YouTube_Captain-America-Avengers-Assemble-Scene-_Media_4pFUP0HZwWM_001_1080p_201_203_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. Audio+Video → Audio+Video: Movie Editing                -->
+<!-- ============================================================ -->
+<section class="section demo-section" style="background: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="movie-editing">Audio+Video &#8594; Audio+Video: Movie Editing (Zero-Shot)</h2>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Video</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Add a dinosaur roaring</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/703e025d-5f75-4bbd-935e-e84b88045602.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/34ffb37f-7a6f-4c99-93c8-69a6059aa753.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Make the people's dress more formal. In the audio, change the saxophone to piano</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/660d20ce-3533-486b-81e5-1035e9038eca.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/d0176eb7-1a04-40ca-b5d3-4a280e052d98.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Replace the magic carpet with a space ship</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/5263ee08-f9de-4556-af44-30c17b22a5bf.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/440aa950-1ac6-4ad1-88d5-52e1b0b40a8a.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the man to a dog astronaut</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/5231d161-56cf-412f-bac1-5f426d01baab.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/row30_1009_4_30_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">No visible changes. Remove the dialogue</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/e0fc249c-8934-4252-8d27-9448cad73fd8.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/bd5a27f7-fd04-4eb3-bdee-8b2e8077ed47.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the scene so that the men are running around the foundation, their breathing is audible</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/91913357-5822-4b0c-a526-1c157035be35.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/8533d56e-9931-4bf0-991d-60486fe80bc4.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add lightning strikes hitting one planet from another, with echoing sounds of thunder</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/row13_1002_1_13_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/f453de1a-23aa-4b3b-90a3-75a910a063fc.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Ducks quack as they swim across the pond</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/e7c727cc-67fa-4203-b79a-f92216629d58.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/1ed6d481-dcf7-441b-a418-0900685e8bb0.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Colorize and sound effects to the scene</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/row60_118_0_60_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/row60_118_0_60_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Replace the pink ball with a cartoon clown</td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/b0302aba-442f-4ab6-9151-f9742957f9ef.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="movie/0d9c5c7a-4899-4ed1-a210-6fb411145af9.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Audio-to-Audio: Instruction-based Source Separation</h2>
+      <h2 class="title is-3" id="source-separation">Audio-to-Audio: Instruction-based Source Separation</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
+        <video poster="" id="tree" controls muted loop height="100%" preload="metadata">
         <source src="soundlift/input.mp4" type="video/mp4">
       </video>
-        <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text-centered">
           Model input
         </h2>
       </div>
        <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
+        <video poster="" id="tree" controls muted loop height="100%" preload="metadata">
         <source src="soundlift/remove_music.mp4" type="video/mp4">
       </video>
-        <!-- TODO: Replace with description of this result -->
         <h2 class="subtitle has-text-centered">
           Remove the music
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
+        <video poster="" id="tree" controls muted loop height="100%" preload="metadata">
         <source src="soundlift/remove_dialogue.mp4" type="video/mp4">
       </video>
         <h2 class="subtitle has-text-centered">
@@ -382,9 +723,7 @@
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
+        <video poster="" id="tree" controls muted loop height="100%" preload="metadata">
         <source src="soundlift/extract_dialogue.mp4" type="video/mp4">
       </video>
         <h2 class="subtitle has-text-centered">
@@ -392,9 +731,7 @@
        </h2>
      </div>
      <div class="item">
-      <!-- Your image here -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
+      <video poster="" id="tree" controls muted loop height="100%" preload="metadata">
         <source src="soundlift/remove_dialogue_ambience_music.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
@@ -406,16 +743,12 @@
 </div>
 <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
       <p>Despite being only trained on simulated separation data, the model can generalize to real, complex scenes. In the following demo, we vary the separated sounds throughout the video.</p>
       <br></br>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
           <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
+            <video poster="" id="tree" controls muted loop height="100%" preload="metadata">
         <source src="soundlift/concatenated_overlay.mp4" type="video/mp4">
         </video>
           </div>
@@ -426,67 +759,400 @@
 </section>
 <!-- End image carousel -->
 
+<!-- ============================================================ -->
+<!-- 3. Audio → Audio: Editing                                  -->
+<!-- ============================================================ -->
+<section class="section demo-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="a2a-editing">Audio &#8594; Audio: Editing</h2>
 
+    <!-- Subsection 1: Synthetic Scenes (AudioChat) -->
+    <h3 class="subsection-title" id="a2a-audiochat">Synthetic Scenes (AudioChat)</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Audio</th>
+            <th>Output Audio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Add the sound of someone panicking</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/f1ffeb0a-6953-4535-abb7-3218298f7c30.wav" type="audio/mpeg"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/6de24c21-f40e-4168-aa6f-290086d0c2b0.wav" type="audio/mpeg"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the door creak</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/585163e5-660d-4bd0-82a9-37279fa7755f.wav" type="audio/mpeg"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/ccdcc54c-47e2-4dc5-a9ca-a0e8e4b2704c.wav" type="audio/mpeg"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Let's make the raven sound more ominous. More drawn out, lower pitched.</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/88c63f0f-9db0-4008-986d-c2e328ae2917.wav" type="audio/mpeg"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/83055c02-a9ee-4ce3-a79a-7833d6fee43e.wav" type="audio/mpeg"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">I think the footsteps are a little too heavy. Can we make them lighter and softer?</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/7e2ab9d4-c502-4cae-ae56-b3bc76d496ed.wav" type="audio/mpeg"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/6caf1231-7f7d-4822-8910-cbc4f835f8c1.wav" type="audio/mpeg"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add a whispering voice</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/b955ad28-c7af-4d40-9dcc-c6fab2b1c069.wav" type="audio/mpeg"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiochat/1b87e604-5dcf-4b3b-99b3-e6129915b888.wav" type="audio/mpeg"></audio></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
+    <!-- Subsection 2: Real World Audio (AudioCaps) -->
+    <h3 class="subsection-title" id="a2a-audiocaps">Real World Audio (AudioCaps)</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Audio</th>
+            <th>Output Audio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Add the sound of a bird chirping</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row2_486e5a96f9e743003b81b5c7e157edf8_audio0.wav" type="audio/wav"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row2_486e5a96f9e743003b81b5c7e157edf8_audio1.wav" type="audio/wav"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the distant kitchen ambience</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row6_4582df19e663e6af62648b27f64026c2_audio0.wav" type="audio/wav"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row6_4582df19e663e6af62648b27f64026c2_audio1.wav" type="audio/wav"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add a low rumbling thunder sound to the background</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row9_5276c71561df452a90b98ffd843968af_audio0.wav" type="audio/wav"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row9_5276c71561df452a90b98ffd843968af_audio1.wav" type="audio/wav"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the overlapping pan water sound</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row23_e1322fbfe524abbfb26e42bab659b8ce_audio0.wav" type="audio/wav"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row23_e1322fbfe524abbfb26e42bab659b8ce_audio2.wav" type="audio/wav"></audio></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Reduce the volume of the dog sounds</td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row35_5b4cf2db6c3f648a5c020376bc2b7b3f_audio0.wav" type="audio/wav"></audio></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="a2a_audiocaps/row35_5b4cf2db6c3f648a5c020376bc2b7b3f_audio1.wav" type="audio/wav"></audio></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
 
+<!-- ============================================================ -->
+<!-- 4. Video → Video: Editing                                  -->
+<!-- ============================================================ -->
+<section class="section demo-section" style="background: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="v2v-editing">Video &#8594; Video: Editing</h2>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Video</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Replace the green bowl with a mystical crystal orb</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/0d50fc91-6959-43da-92bc-e815397baec8.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/d3830930-8781-40ba-abb9-a67d22137787.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add a magical rainbow in the background</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/84241d53-47bb-467e-bdc3-a1940963c1e9.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/9727ff50-505e-434e-8deb-fab40fe5d73a.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Transform the entire video to resemble a vivid oil painting, enhancing the textures and brush strokes for a painterly effect</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/e8f07360-ba40-4f1d-8fe2-829d018a8bee.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/f7c18a9d-2668-4966-a7ea-88c9b51b057f.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add a pair of realistic sunglasses to the man in the video. The sunglasses should be proportionate to his face, with a sleek black frame and dark reflective lenses that subtly mirror the environment. Ensure the glasses follow the natural movement and tilt of his head, with proper perspective and slight shadowing on the face where the frames rest.</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row2_vid0.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row2_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the black car from the video</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row4_vid0.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row4_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Insert a butterfly</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row31_vid0.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row31_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the animal that is swimming to a boat</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row38_vid0.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row38_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Make the place where the man stands made by water</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row36_vid0.mp4" type="video/mp4"></video></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row36_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+    <h3 class="subsection-title" id="v2v-image">Video + Image to Video</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Video</th>
+            <th>Input Image</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Insert a paper boat in the water</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row30_vid0.mp4" type="video/mp4"></video></td>
+            <td><img src="v2v/row30_img1.jpg" alt="Input image" class="demo-image"></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row30_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Insert a car</td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row34_vid0.mp4" type="video/mp4"></video></td>
+            <td><img src="v2v/row34_img1.jpg" alt="Input image" class="demo-image"></td>
+            <td><video autoplay controls muted loop preload="metadata" class="demo-video"><source src="v2v/row34_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
 
+<!-- ============================================================ -->
+<!-- 5. Image → Image: Editing                                  -->
+<!-- ============================================================ -->
+<section class="section demo-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="i2i-editing">Image &#8594; Image: Editing</h2>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Image</th>
+            <th>Output Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Transfer the image into a traditional ukiyo-e woodblock-print style.</td>
+            <td><img src="i2i/row2_imgedit_style_673_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><img src="i2i/row2_imgedit_style_673_img3.jpg" alt="Output image" class="demo-image"></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the red trolley (marked \"77\" and labeled \"WEST CHESTER\") from the railway track in the foreground.</td>
+            <td><img src="i2i/row5_imgedit_remove_510_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><img src="i2i/row5_imgedit_remove_510_img3.jpg" alt="Output image" class="demo-image"></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add a small brown dog sitting inside the open trunk of the antique car.</td>
+            <td><img src="i2i/row12_imgedit_add_22_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><img src="i2i/row12_imgedit_add_22_img3.jpg" alt="Output image" class="demo-image"></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add a modern skyscraper in the background.</td>
+            <td><img src="i2i/row28_imgedit_add_45_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><img src="i2i/row28_imgedit_add_45_img2.jpg" alt="Output image" class="demo-image"></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the interior setting in the image from a historic or vintage room to a modern office environment.</td>
+            <td><img src="i2i/row57_imgedit_background_223_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><img src="i2i/row57_imgedit_background_223_img1.jpg" alt="Output image" class="demo-image"></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Replace the blue bird in the image with a red fox.</td>
+            <td><img src="i2i/row292_imgedit_replace_574_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><img src="i2i/row292_imgedit_replace_574_img2.jpg" alt="Output image" class="demo-image"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
+<!-- ============================================================ -->
+<!-- 6. Image → Video+Audio                                     -->
+<!-- ============================================================ -->
+<section class="section demo-section" style="background: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="i2va">Image &#8594; Video+Audio</h2>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Image</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Several penguins stand and interact on a snow-covered iceberg while small seals emerge from the nearby water, one sliding partway onto the ice as light snowfall begins around them.</td>
+            <td><img src="i2va/row1_ti2v_GR6_bitesized_149_1.0_1_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row1_ti2v_GR6_bitesized_149_1.0_1_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A small dog riding in a backpack on a seated hiker's back turns its head toward the camera with curiosity and barks twice.</td>
+            <td><img src="i2va/row6_ti2v_GR6_bitesized_149_1.0_6_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row6_ti2v_GR6_bitesized_149_1.0_6_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">The camera zooms out from a close view of chickens by a wire fence to reveal a busy pen filled with many chickens moving around and foraging</td>
+            <td><img src="i2va/row8_ti2v_GR6_bitesized_149_1.0_8_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row8_ti2v_GR6_bitesized_149_1.0_8_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Cute little animated characters emerge onto the upper balconies of a pastel row of buildings while additional characters come out from the ground-floor shops below, waving and calling to one another across the street frontage.</td>
+            <td><img src="i2va/row24_ti2v_GR6_bitesized_149_1.0_24_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row24_ti2v_GR6_bitesized_149_1.0_24_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A stylized 3D character stands centered against a plain backdrop, waving toward the camera while jumping up and down in place.</td>
+            <td><img src="i2va/row25_ti2v_GR6_bitesized_149_1.0_25_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row25_ti2v_GR6_bitesized_149_1.0_25_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A woman stands before a large oval mirror while her reflected self walks deeper away within the mirror, shrinking in the reflected space as she watches.</td>
+            <td><img src="i2va/row30_ti2v_GR6_bitesized_149_1.0_30_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row30_ti2v_GR6_bitesized_149_1.0_30_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A hooded figure at the far end of a dark hallway moves forward toward the camera as the overhead light flickers unevenly.</td>
+            <td><img src="i2va/row40_ti2v_GR6_bitesized_149_1.0_40_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row40_ti2v_GR6_bitesized_149_1.0_40_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Three first responders in orange flight suits roll a patient on a gurney beside a helicopter, coordinating with each other as they prepare to load the patient into the aircraft on the left</td>
+            <td><img src="i2va/row50_ti2v_GR6_bitesized_149_1.0_50_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/row50_ti2v_GR6_bitesized_149_1.0_50_vid1.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">An elderly couple walks in from the left into a cozy 3D living room set, sits down in the two armchairs facing the coffee table, and begins chatting together.</td>
+            <td><img src="i2va/row27_ti2v_GR6_bitesized_149_1.0_27_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="i2va/1e63a01a-e9d8-4421-99b7-1c484e5bd75a.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-
-
+<!-- ============================================================ -->
+<!-- 7. Image+Audio → Video+Audio                               -->
+<!-- ============================================================ -->
+<section class="section demo-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="ia2va">Image+Audio &#8594; Video+Audio</h2>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Input Image</th>
+            <th>Input Audio</th>
+            <th>Output Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">A woman with short, wavy blonde hair and a gentle smile is seated in a director's chair, looking at the camera. She wears a dark grey turtleneck sweater under a black quilted leather jacket. The setting is a dimly lit room, possibly an office or archive, with shelves of boxes and a desk with a typewriter visible in the soft-focus background. The lighting is warm and focused on her, creating an intimate interview-style atmosphere, and the person's lips move in motion with the speech. Audio: The woman speaks enthusiastically about a story, her expression matching her positive tone. <speech lang='en'>'I think the audiences are going to be riveted by the story. It is absolutely gripping.' [aɪ θˈɪŋk ðə ˈɔːdiənsɪz ɑːɹ gˈoʊɪŋ tə bi ɹˈɪvɪtɪd baɪ ðə stˈoːɹi ɪt ɪz ˌæbsəlˈuːtli gɹˈɪpɪŋ]</speech></td>
+            <td><img src="ia2va/row0_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row0_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row0_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A woman with dark wavy hair and a pensive expression sits by the window on a moving train, wearing a dark camisole with lace trim and maroon pants. The seat behind her has a patterned blue fabric, and the lighting is cool and natural. The shot is a medium close-up, and the persons lips move in motion with the speech. Audio: The woman on the train speaks softly, her voice blending with the rhythmic rumble of the train on its tracks. <speech lang='es'>'que luego hablamos. Un besito.' [kˈe lʊˈeɣo aβlˈamos ˈumbesˈito]</speech></td>
+            <td><img src="ia2va/row1_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row1_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row1_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A middle-aged man with fair skin and wavy, shoulder-length dark brown hair sits for an interview. He wears a blue short-sleeved button-down shirt open at the collar over a white undershirt. His expression is thoughtful as he looks slightly down and to his left. The setting is an indoor room with soft lighting. In the out-of-focus background, a wooden dresser with a mirror and a vintage metal fan are visible against a neutral-colored wall. The camera is framed in a medium close-up, and the persons lips move in motion with the speech. Audio: The man in the blue shirt speaks in a calm, measured tone, his expression matching the contemplative nature of his words. <speech lang='en'>'She has just a sense of confidence and a' [ʃiː hæz dʒˈʌst ɐ sˈɛns ʌv kˈɑːnfɪdɪns ænd ɐ]</speech></td>
+            <td><img src="ia2va/row4_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row4_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row4_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A man with short blond hair in a blue sweater stands next to a man in a white chef's coat and another man in a suit holding a Guinness World Records folder. They are in a brightly lit studio in front of a live audience, standing behind a counter with a cutting board, knife, blindfold, and carrots. The blond man is speaking with an animated expression, and his lips move in motion with the speech. Audio: The blond man speaks with an excited, announcer-like voice to the audience about an upcoming world record attempt. <speech lang='en'>'tonight, he's going to try and set a new world record for the most carrot slices done in thir' [tənˈaɪt, hiz gˈoʊɪŋ tə tɹˈaɪ ænd sˈɛt ɐ nˈuː wˈɜːld ɹˈɛkɚd fɔːɹ ðə mˈoʊst kˈæɹət slˈaɪsᵻz dˈʌn ɪn θɜːɹ ]</speech></td>
+            <td><img src="ia2va/row5_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row5_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row5_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A young woman with long brown hair and fair skin is shown in a close-up against a solid black background. She wears a black ribbed short-sleeved shirt. The scene is dramatically lit from one side, casting deep shadows and highlighting her serious expression as she looks slightly off-camera, the persons lips move in motion with the speech. Audio: The woman with long brown hair speaks in a calm and reflective tone, her voice matching the serious and intimate mood created by the low-key lighting. <speech lang='es'>'fue una situación de mucho respeto y' [fwˈe ˈuna sitwasjˈon de mˈutʃo respˈeto i]</speech></td>
+            <td><img src="ia2va/row7_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row7_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row7_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A close-up shot of a young woman with fair skin, dark, styled hair, and dark eyes, sitting in the driver's seat of a car at night. She wears a lavender top and a delicate pearl necklace. The scene is dramatically lit, with her face illuminated while the interior of the car and the background remain in deep shadow. The steering wheel is visible in the foreground. She looks off to her right with a thoughtful and slightly wistful expression, and the person's lips move in motion with the speech. Audio: The woman in the lavender top speaks with a clear, slightly melancholic tone, her voice accompanied by faint, dramatic orchestral music. <speech lang='en'>'Yeah, she has something I don't have. Nice' [jˈæ, ʃi hˈæz sˈʌmθɪŋ ˈaɪ dˈoʊnt hˈæv. nˈaɪs]</speech></td>
+            <td><img src="ia2va/row20_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row20_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row20_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A man with dark skin, in his late 20s or early 30s, is shown in a medium close-up shot. He has short, textured black hair with faded sides, a neat goatee, and a small silver hoop earring in his left ear. He wears a thick, silver-colored chain necklace and a light blue, short-sleeved button-up shirt with a faint white pattern. He is speaking with an engaged expression, his mouth slightly open, and the person's lips move in motion with the speech. The background is a softly lit, out-of-focus room with neutral-colored walls and a blurry abstract painting with blue and orange tones. Audio: The man speaks conversationally, recounting a story from inside the room. <speech lang='en'>'in the middle of dinner, LED was just like, 'Hey, would you would you go on a trip with your ex?' Just' [ɪn ðə mˈɪdəl ʌv dˈɪnɚ, ɛl i dˈiː wʌz dʒˈʌst lˈaɪk, hˈeɪ, wʊd jˈuː wʊd jˈuː gˈoʊ ɑːn ɐ tɹˈɪp wɪθ jʊəɹ ˈɛks? dʒˈʌst ]</speech></td>
+            <td><img src="ia2va/row25_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row25_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row25_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">A young woman with fair skin, dark hair, and a bruise on her cheek lies on a couch, propped up by a yellow and white patterned pillow. She wears a white cervical neck brace and a light-colored camisole, her expression weary and pained. One hand with black nail polish rests on her chest while the other touches the brace. The room is dimly lit, with a patterned couch and a small end table visible in the background. The back of another person's head is out of focus in the foreground, and the person's lips move in motion with the speech. Audio: The injured woman on the couch speaks in a weak, shaky voice, her tone conveying fear and exhaustion. <speech lang='en'>'It wasn't a person. It was a' [ɪt wˈɑːzənt ɐ pˈɜːsən. ɪt wʌz ə]</speech></td>
+            <td><img src="ia2va/row33_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row33_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row33_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Several people in yellow jumpsuits walk through an institutional corridor with dark vertical panels on the walls. A person with short brown hair is seen in profile, walking with a determined look. In the background, a man in a white shirt and tie moves past, while the heads of other individuals are visible in the blurry foreground. The scene is dimly lit, creating a tense and serious atmosphere. Audio: Tense, rhythmic, and percussive music underscores the scene, mixed with the sound of shuffling footsteps as the group moves forward.</td>
+            <td><img src="ia2va/row38_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row38_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row38_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Three men stand outdoors by a railing in a gritty, industrial setting with steel girders in the background. The man on the right, wearing a dark fedora and overcoat, holds a paper cup and speaks. In the center, a man in a dark three-piece suit and patterned tie listens, while the man on the left, in a dark coat with the collar up, looks on seriously, holding a cup and a metal lunch pail. The scene has a vintage 1970s film aesthetic. The man in the fedora's lips move in motion with the speech. Audio: The man in the fedora speaks in a serious, conspiratorial tone in French, as his two companions listen in the industrial environment. <speech lang='fr'>'Il aime l'argent. Et je possède un élément que ni lui' [il ɛm laʁʒɑ̃ e ʒə pɔsɛd ɛ̃n‿ elemɑ̃ kə ni lɥi]</speech></td>
+            <td><img src="ia2va/row41_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row41_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row41_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">At night, a woman with blonde hair, wearing a light-colored top and shorts, runs across a dirt yard while holding a rifle. She is in front of a large, two-story white house with overgrown vines. A motorcycle is parked nearby, next to a large corrugated metal water tank. In the background, a bald man in a light shirt emerges from behind the building. The scene is dimly lit, creating a tense and suspenseful atmosphere under a dark night sky. Audio: The sound of footsteps on gravel is heard as the woman runs, followed by the loud, sharp report of a gunshot.</td>
+            <td><img src="ia2va/row44_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row44_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row44_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">An East Asian man with short dark hair, wearing a black leather jacket with a red collar over a graphic t-shirt, sits in a chair in a futuristic control room. He is framed in a medium shot, leaning forward with his hands clasped as he speaks. The background is filled with complex electronic equipment, including monitors and a large, glowing blue panel with intricate geometric patterns, and the person's lips move in motion with the speech. Audio: The man in the black leather jacket speaks in a calm, thoughtful tone while sitting in the high-tech room. <speech lang='en'>'As an actor, you know, we always strive to' [æz ən ˈæktɚ jˈuː nˈoʊ wˈiː ˈɔːlweɪz stɹˈaɪv tˈuː]</speech></td>
+            <td><img src="ia2va/row50_img0.jpg" alt="Input image" class="demo-image"></td>
+            <td><audio controls preload="metadata" class="demo-audio"><source src="ia2va/row50_audio1.wav" type="audio/wav"></audio></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="ia2va/row50_vid2.mp4" type="video/mp4"></video></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
@@ -534,5 +1200,12 @@
 
     <!-- End of Statcounter Code -->
 
+  <script>
+    document.addEventListener('play', function(e) {
+      if (e.target.tagName === 'VIDEO') {
+        e.target.muted = false;
+      }
+    }, true);
+  </script>
   </body>
   </html>
