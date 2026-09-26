@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CrossEdit &mdash; Rebuttal (preview)</title>
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <style>
+    .demo-table td { vertical-align: middle; text-align: center; }
+    .demo-table th { text-align: center; }
+    .instruction-col { width: 22%; text-align: left !important; vertical-align: middle; font-size: 0.92rem; }
+    .demo-video { width: 100%; max-width: 320px; display: block; margin: 0 auto; }
+    .demo-audio { width: 100%; display: block; margin: 0 auto; }
+    .demo-image { width: 100%; max-width: 280px; display: block; margin: 0 auto; border-radius: 4px; }
+    .demo-section { padding: 3rem 1.5rem; }
+    .subsection-title { font-size: 1.2rem; font-weight: 600; margin: 2rem 0 0.75rem; color: #363636; }
+    .media-stack > * + * { margin-top: 0.5rem; }
+    .rebuttal-table th { font-size: 0.85rem; }
+    .rebuttal-table td, .rebuttal-table th { padding: 0.4rem; }
+    .rebuttal-table .instruction-col { width: 15%; min-width: 150px; font-size: 0.85rem; }
+    .rebuttal-table .demo-video { width: 240px; max-width: 100%; }
+
+    /* TLDR capability cards */
+    .tldr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .tldr-card { border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; text-decoration: none !important; color: inherit !important; transition: box-shadow 0.2s, transform 0.15s; background: #fff; display: flex; flex-direction: column; cursor: pointer; }
+    .tldr-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.13); transform: translateY(-3px); }
+    .tldr-card video, .tldr-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #111; display: block; }
+    .tldr-card-audio-wrap { background: #1a1a2e; padding: 1rem 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .tldr-card-audio-wrap audio { width: 100%; }
+    .tldr-card-audio-icon { color: #888; font-size: 1.6rem; }
+    .tldr-card-body { padding: 0.7rem 0.9rem; flex: 1; }
+    .tldr-card-title { font-weight: 700; font-size: 0.9rem; color: #2563eb; margin-bottom: 0.3rem; }
+    .tldr-card-instruction { font-size: 0.8rem; color: #555; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body>
+<main id="main-content">
+<!-- ============================================================ -->
+<!-- 9. Rebuttal                                                -->
+<!-- ============================================================ -->
+<section class="section demo-section" >
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3" id="comparisons">Cross-method Comparisons</h2>
+
+    <h3 class="subsection-title" id="comparisons-speech">Speech</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table rebuttal-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Source</th>
+            <th>Stable Avatar</th>
+            <th>HuMo</th>
+            <th>CrossEdit-Base</th>
+            <th>CrossEdit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Change the speech to "and things are stretched out to the point where now it's almost getting funny"</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0155-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/stableavatar/avediting_stable_row0155-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/humo/avediting_humo_row0155-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0155-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0155-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to And that may be an understood thing between him and his wife and that's all falling apart.</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0157-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/stableavatar/avediting_stable_row0157-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/humo/avediting_humo_row0157-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0157-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0157-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to There were a lot of small chapters in the history books.</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0161-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/stableavatar/avediting_stable_row0161-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/humo/avediting_humo_row0161-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0161-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0161-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to Who would make the discovery? How would it be made and how long would it take?</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0386-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/stableavatar/avediting_stable_row0386-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/humo/avediting_humo_row0386-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0386-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0386-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+</tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title" id="comparisons-scene">Scene</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table rebuttal-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Source</th>
+            <th>HY-Video-Foley XXL</th>
+            <th>HY-Video-Foley XL</th>
+            <th>VACE + Coherent</th>
+            <th>AvED</th>
+            <th>AVI-Edit</th>
+            <th>MiniMax-H3</th>
+            <th>InstructAV2AV</th>
+            <th>CrossEdit-Base</th>
+            <th>CrossEdit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Remove the right man's hat, he starts saying "It is much too dark in here Johnny"</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row4_100_1_4_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xxl/avediting_xxl_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xl/avediting_xl_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/vace_coherent/avediting_vace_coherent_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/aved/avediting_aved_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/avi_edit/avediting_avi_edit_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/minimax_h3/avediting_minimax_h3_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/instructav2av/avediting_instructav2av_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Make the video and music more happy</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row41_1010_17_41_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xxl/avediting_xxl_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xl/avediting_xl_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/vace_coherent/avediting_vace_coherent_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/aved/avediting_aved_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/avi_edit/avediting_avi_edit_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/minimax_h3/avediting_minimax_h3_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/instructav2av/avediting_instructav2av_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the static</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row45_1012_0_45_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xxl/avediting_xxl_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xl/avediting_xl_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/vace_coherent/avediting_vace_coherent_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/aved/avediting_aved_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/avi_edit/avediting_avi_edit_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/minimax_h3/avediting_minimax_h3_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/instructav2av/avediting_instructav2av_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the music and change the speech to do you recognize her</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row47_1012_11_47_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xxl/avediting_xxl_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/xl/avediting_xl_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/vace_coherent/avediting_vace_coherent_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/aved/avediting_aved_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/avi_edit/avediting_avi_edit_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/minimax_h3/avediting_minimax_h3_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="metadata" class="demo-video"><source src="crossedit_rebuttal/scene/instructav2av/avediting_instructav2av_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+</tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title" id="comparisons-ablation">Ablation</h3>
+    <div class="table-container">
+      <table class="table is-bordered is-hoverable is-fullwidth demo-table rebuttal-table">
+        <thead>
+          <tr>
+            <th class="instruction-col">Instruction</th>
+            <th>Source</th>
+            <th>CrossEdit-Base</th>
+            <th>+ Audio Editing</th>
+            <th>+ Audio Editing + AV Masked Reconstruction (CrossEdit)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="instruction-col">Change the speech to "and things are stretched out to the point where now it's almost getting funny"</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0155-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0155-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/no_masking/avediting_nomasking_row0155-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0155-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to And that may be an understood thing between him and his wife and that's all falling apart.</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0157-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0157-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/no_masking/avediting_nomasking_row0157-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0157-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to There were a lot of small chapters in the history books.</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0161-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0161-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/no_masking/avediting_nomasking_row0161-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0161-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the speech to Who would make the discovery? How would it be made and how long would it take?</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/source/avediting_source_row0386-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/base/avediting_base_row0386-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/no_masking/avediting_nomasking_row0386-speech.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/speech/crossedit/avediting_crossedit_row0386-speech.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the right man's hat, he starts saying "It is much too dark in here Johnny"</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row4_100_1_4_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/no_masking/avediting_nomasking_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row4-100-1-4-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the dialogue</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row27_1008_3_27_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row27-1008-3-27-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/no_masking/avediting_nomasking_row27-1008-3-27-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row27-1008-3-27-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Change the man to a dog astronaut</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row30_1009_4_30_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row30-1009-4-30-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/no_masking/avediting_nomasking_row30-1009-4-30-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row30-1009-4-30-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Make the video and music more happy</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row41_1010_17_41_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/no_masking/avediting_nomasking_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row41-1010-17-41-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the static</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row45_1012_0_45_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/no_masking/avediting_nomasking_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row45-1012-0-45-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Remove the music and change the speech to do you recognize her</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row47_1012_11_47_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/no_masking/avediting_nomasking_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row47-1012-11-47-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+          <tr>
+            <td class="instruction-col">Add a dinosaur roaring</td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/source/row67_288_1_67_vid0.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/base/avediting_base_row67-288-1-67-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/no_masking/avediting_nomasking_row67-288-1-67-scene.mp4" type="video/mp4"></video></td>
+            <td><video controls muted loop preload="none" class="demo-video"><source data-src="crossedit_rebuttal/scene/crossedit/avediting_crossedit_row67-288-1-67-scene.mp4" type="video/mp4"></video></td>
+          </tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+// Fetch each video only once it scrolls near the viewport.
+document.addEventListener('DOMContentLoaded', function () {
+  var pending = document.querySelectorAll('video source[data-src]');
+  var load = function (s) {
+    if (!s.dataset.src) return;
+    s.src = s.dataset.src;
+    delete s.dataset.src;
+    s.parentElement.load();
+  };
+  if (!('IntersectionObserver' in window)) { pending.forEach(load); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      e.target.querySelectorAll('source[data-src]').forEach(load);
+    });
+  }, { rootMargin: '400px 0px' });
+  document.querySelectorAll('video').forEach(function (v) { io.observe(v); });
+});
+</script>
+</body>
+</html>
