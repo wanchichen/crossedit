@@ -90,53 +90,45 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Video carousel autoplay when in view
-function setupVideoCarouselAutoplay() {
-    const carouselVideos = document.querySelectorAll('.results-carousel video');
-    
-    if (carouselVideos.length === 0) return;
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const video = entry.target;
-            if (entry.isIntersecting) {
-                // Video is in view, play it
-                video.play().catch(e => {
-                    // Autoplay failed, probably due to browser policy
-                    console.log('Autoplay prevented:', e);
-                });
-            } else {
-                // Video is out of view, pause it
-                video.pause();
-            }
-        });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the video is visible
-    });
-    
-    carouselVideos.forEach(video => {
-        observer.observe(video);
-    });
-}
+var isMobile = window.matchMedia('(max-width: 768px)').matches ||
+               /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 $(document).ready(function() {
-    // Check for click events on the navbar burger icon
-
     var options = {
 		slidesToScroll: 1,
 		slidesToShow: 1,
 		loop: true,
 		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 5000,
+		autoplay: false,
+		autoPlay: false,
     }
 
 	// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
-	
+
+    // Force-stop autoplay on every carousel instance regardless of library version
+    if (carousels && carousels.length) {
+        carousels.forEach(function(carousel) {
+            if (carousel.stopAutoplay) carousel.stopAutoplay();
+            if (carousel.pause) carousel.pause();
+        });
+    }
+
     bulmaSlider.attach();
-    
-    // Setup video autoplay for carousel
-    setupVideoCarouselAutoplay();
+
+    if (isMobile) {
+        // Disable autoplay on all videos on mobile
+        document.querySelectorAll('video[autoplay]').forEach(function(video) {
+            video.removeAttribute('autoplay');
+            video.pause();
+        });
+    }
+
+    // Show first frame as thumbnail for all videos
+    document.querySelectorAll('video').forEach(function(video) {
+        video.addEventListener('loadedmetadata', function() {
+            video.currentTime = 0.001;
+        });
+    });
 
 })
